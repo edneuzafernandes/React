@@ -3,6 +3,7 @@
 }
 
 body {
+  padding-top: 4rem;
   margin: 0px;
   --color-primary: '#333';
   color: var(--color-primary);
@@ -36,6 +37,10 @@ input {
   font-size: 1rem;
   font-family: var(--type-first);
   color: var(--color-primary);
+}
+
+a{
+  text-decoration: none;
 }
 
 .container {
