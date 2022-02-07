@@ -5,7 +5,7 @@ import Button from '../Forms/Button';
 import useForm from '../../Hooks/useForm';
 
 const LoginForm = () => {
-  const username = useForm();
+  const username = useForm('email');
   const password = useForm();
   console.log(username.value);
   console.log(password.value);
