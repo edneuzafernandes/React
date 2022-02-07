@@ -7,30 +7,30 @@ import useForm from '../../Hooks/useForm';
 const LoginForm = () => {
   const username = useForm('email');
   const password = useForm();
-  console.log(username.value);
-  console.log(password.value);
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(),
-    })
-      .then((response) => {
-        console.log(response);
-        return response.json();
+
+    if (username.validate() && password.validate()) {
+      fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(),
       })
-      .then((json) => {
-        console.log(json);
-      });
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((json) => {
+          console.log(json);
+        });
+    }
   }
 
   return (
     <section>
-      Form de login
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
